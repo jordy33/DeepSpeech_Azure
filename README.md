@@ -2,7 +2,9 @@
 
 Azure Type
 ```
-Standard NC6_Promo (6 vcpus, 56 GiB memory)
+Standard NC6_Promo (6 vcpus, 56 GiB memory) with 
+Main Disk   : Standard SSD 30 Gb
+Storage disk: Standard SSD 256Gb mounted in /mnt
 ```
 
 In Ubuntu 18.04 installing Cuda and TensorFlow 10.1 
@@ -161,7 +163,7 @@ mv es old_es
 ```
 
 Dowload Mozilla Common Spanish
-* Get the link from the portal click-right after entering the email and use the link between quotes
+* Get the link from the portal with click-right after entering the email and use the link between quotes in wget
 
 ```
 sudo apt-get install wget
