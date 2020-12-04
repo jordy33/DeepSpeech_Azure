@@ -131,7 +131,7 @@ experience proves this
 Inference took 1.502s for 1.975s audio file.
 ```
 
-Training own Model (prerequisite CUDA 10.0)
+Prerequisites for training own Model (prerequisite CUDA 10.0)
 ```
 deactivate
 cd /mnt
@@ -149,4 +149,12 @@ git clone --branch v0.9.2 https://github.com/mozilla/DeepSpeech
 cd DeepSpeech
 pip3 install numpy==1.16.0
 pip3 install --upgrade -e .
+```
+
+Train Model in Spanish
+```
+cd /mnt/DeepSpeech
+mkdir model
+git clone https://github.com/jordy33/deepspeech_train_spanish.git es
+python3 DeepSpeech.py --train_files ./es/train.csv --dev_files ./es/dev.csv --test_files ./es/test.csv --export_dir ./model
 ```
