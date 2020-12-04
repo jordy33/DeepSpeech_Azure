@@ -1,13 +1,14 @@
 # DeepSpeech_Azure
 
-initial disk
+Initial disk
 ```
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdb1        29G  1.4G   28G   5% /
 ```
-Ubuntu 18.04 Cuda
+In Ubuntu 18.04 installing Cuda and TensorFlow 10.1 
 ```
 # Add NVIDIA package repositories
+sudo apt update
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
 sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 sudo dpkg -i cuda-repo-ubuntu1804_10.1.243-1_amd64.deb
@@ -101,4 +102,51 @@ It looks like
    │                                                                        │
  0%│────────────────────────────────────────────────────────────────────────│
    └────────────────────────────────────────────────────────────────────────┘
+```
+Install Deep Speech
+```
+cd /mnt
+sudo apt install python3-dev python3-pip python3-venv
+python3 -m venv deepspeech-gpu-venv
+source deepspeech-gpu-venv/bin/activate
+pip3 install deepspeech-gpu
+mkdir deepspeech
+cd deepspeech
+# Download pre-trained English model files
+curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.2/deepspeech-0.9.2-models.pbmm
+curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.2/deepspeech-0.9.2-models.scorer
+# Download example audio files
+curl -LO https://github.com/mozilla/DeepSpeech/releases/download/v0.9.2/audio-0.9.2.tar.gz
+tar xvf audio-0.9.2.tar.gz
+# Transcribe an audio file
+deepspeech --model deepspeech-0.9.2-models.pbmm --scorer deepspeech-0.9.2-models.scorer --audio audio/2830-3980-0043.wav
+```
+Result from the test
+```
+Loaded model in 0.204s.
+Loading scorer from files deepspeech-0.9.2-models.scorer
+Loaded scorer in 0.000216s.
+Running inference.
+experience proves this
+Inference took 1.502s for 1.975s audio file.
+```
+
+Training own Model (prerequisite CUDA 10.0)
+```
+deactivate
+cd /mnt
+# Installing CUDA 10.0
+sudo apt-get install --no-install-recommends \
+    cuda-10-0 \
+    libcudnn7=7.6.5.32-1+cuda10.0  \
+    libcudnn7-dev=7.6.5.32-1+cuda10.0
+
+python3 -m venv deepspeech-train-venv
+source deepspeech-train-venv/bin/activate
+pip install --upgrade pip
+pip3 install --upgrade pip==20.2.2 wheel==0.34.2 setuptools==49.6.0
+git clone --branch v0.9.2 https://github.com/mozilla/DeepSpeech
+cd DeepSpeech
+pip3 install numpy==1.16.0
+pip3 install --upgrade -e .
 ```
