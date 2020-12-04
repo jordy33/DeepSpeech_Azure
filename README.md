@@ -1,4 +1,4 @@
-# DeepSpeech_Azure
+# DeepSpeech in Azure VM with Nvidia K80
 
 Initial disk
 ```
