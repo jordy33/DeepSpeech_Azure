@@ -32,7 +32,7 @@ sudo apt-get install -y --no-install-recommends libnvinfer6=6.0.1-1+cuda10.1 \
     libnvinfer-plugin6=6.0.1-1+cuda10.1
 ```
 
-Access external disk for the user azureuser
+Accessing external disk for the user: azureuser
 ```
 sudo chown -R azureuser /mnt
 chmod o+x /mnt 
