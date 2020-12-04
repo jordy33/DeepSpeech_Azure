@@ -1,10 +1,10 @@
 # DeepSpeech in Azure VM with Nvidia K80
 
-Initial disk
+Azure Type
 ```
-Filesystem      Size  Used Avail Use% Mounted on
-/dev/sdb1        29G  1.4G   28G   5% /
+Standard NC6_Promo (6 vcpus, 56 GiB memory)
 ```
+
 In Ubuntu 18.04 installing Cuda and TensorFlow 10.1 
 ```
 # Add NVIDIA package repositories
