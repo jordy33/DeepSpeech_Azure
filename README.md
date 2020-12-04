@@ -1,4 +1,4 @@
-# DeepSpeech in Azure VM with Nvidia K80
+# DeepSpeech Spanish (Español) in Azure VM with Nvidia K80
 
 Azure Type
 ```
