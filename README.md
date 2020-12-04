@@ -1,13 +1,13 @@
-# DeepSpeech Spanish (Español) in Azure VM with Nvidia K80
+# DeepSpeech Spanish (Español)
 
-Azure Type
+Azure VM with Ubuntu 18.04 and Nvidia K80 characteristics
 ```
 Standard NC6_Promo (6 vcpus, 56 GiB memory) with 
 Main Disk   : Standard SSD 30 Gb
 Storage disk: Standard SSD 256Gb mounted in /mnt
 ```
 
-In Ubuntu 18.04 installing Cuda and TensorFlow 10.1 
+Installing Cuda and TensorFlow 10.1 
 ```
 # Add NVIDIA package repositories
 sudo apt update
