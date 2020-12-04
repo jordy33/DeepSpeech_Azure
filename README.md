@@ -1,6 +1,6 @@
 # DeepSpeech Spanish (Español)
 
-Azure VM with Ubuntu 18.04 and Nvidia K80 characteristics
+Azure VM with Ubuntu 18.04 and Nvidia Tesla K80 characteristics
 ```
 Standard NC6_Promo (6 vcpus, 56 GiB memory) with 
 Main Disk   : Standard SSD 30 Gb
